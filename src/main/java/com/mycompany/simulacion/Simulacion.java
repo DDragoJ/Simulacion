@@ -5,6 +5,8 @@
 
 package com.mycompany.simulacion;
 
+import Font.Font1;
+
 /**
  *
  * @author cosmo
@@ -12,6 +14,7 @@ package com.mycompany.simulacion;
 public class Simulacion {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Font1 P_inicio= new Font1();
+        P_inicio.show();
     }
 }
