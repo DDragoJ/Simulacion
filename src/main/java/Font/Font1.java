@@ -4,6 +4,7 @@
  */
 package Font;
 
+import Datos.PFCS;
 import Datos.PICS;
 
 /**
@@ -33,6 +34,7 @@ public class Font1 extends javax.swing.JFrame {
         txt_Miu = new javax.swing.JTextField();
         txt_Landa = new javax.swing.JTextField();
         lbl_respuesta = new javax.swing.JLabel();
+        txt_M = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -54,6 +56,8 @@ public class Font1 extends javax.swing.JFrame {
         lbl_respuesta.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         lbl_respuesta.setAutoscrolls(true);
 
+        txt_M.setText("M");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -68,7 +72,9 @@ public class Font1 extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(txt_Miu, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txt_Miu, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_M, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                         .addComponent(lbl_respuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -84,7 +90,9 @@ public class Font1 extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(106, 106, 106)
-                        .addComponent(txt_Miu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txt_Miu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(txt_M, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(51, 51, 51)
                         .addComponent(lbl_respuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -105,7 +113,7 @@ public class Font1 extends javax.swing.JFrame {
 
     private void btn_calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calcularActionPerformed
         // TODO add your handling code here:
-        PICS valor=new PICS(0.0,Double.parseDouble(txt_Landa.getText()),Double.parseDouble(txt_Miu.getText()));
+        PFCS valor=new PFCS(Double.valueOf(txt_M.getText()),Double.valueOf(txt_Landa.getText()),Double.valueOf(txt_Miu.getText()));
         lbl_respuesta.setText(valor.Leer());
     }//GEN-LAST:event_btn_calcularActionPerformed
 
@@ -149,6 +157,7 @@ public class Font1 extends javax.swing.JFrame {
     private javax.swing.JButton btn_calcular;
     private javax.swing.JLabel lbl_respuesta;
     private javax.swing.JTextField txt_Landa;
+    private javax.swing.JTextField txt_M;
     private javax.swing.JTextField txt_Miu;
     // End of variables declaration//GEN-END:variables
 }

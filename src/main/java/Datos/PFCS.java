@@ -11,7 +11,7 @@ import interfaz.int_simulacion;
  * @author cosmo
  */
 public class PFCS implements int_simulacion{
-    public PFCS (Double M, Double Landa, Double Miu){ this.M = M;
+    public PFCS (Double M, Double Landa, Double Miu){
     this.M=M;
     this.Landa = Landa;
     this.K = 1.0;
@@ -23,49 +23,51 @@ public class PFCS implements int_simulacion{
     Double K;
     Double Miu;
     Metodos metodo;
-    public Double Sistema_Vacio(){
+    
+    @Override
+    public Double Sistema_vacio(){
         Double aux=0.0;
         Integer p_factor=metodo.fac((int)Math.round(M));
         Double s_factor=(Landa/Miu);
         for(int i=0;i<=M;i++){
-            aux=aux+(metodo.fac((int)Math.round(M-i))*Math.pow(s_factor,i));
+            aux=aux+(((p_factor)/(metodo.fac((int)Math.round(M-i))))*Math.pow(s_factor,i));
         }
         return 1/aux;
     }
 
     @Override
     public Double Sistema_ocupado() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public Double Sistema_vacio(int op, double aux) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return 1-Sistema_vacio();
     }
 
     @Override
     public Double n_clientes(int n) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Double aux=0.0;
+        aux=(double)(metodo.fac((int)Math.round(M))/metodo.fac((int)Math.round(M-n)));
+        aux=aux*Math.pow((Landa/Miu),n)*Sistema_vacio();
+        return aux;
     }
 
     @Override
     public Double maximo_n_clientes(int n) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Double aux=0.0;
+        for (int i=0;i<=n;i++){ aux=aux+n_clientes(i);};
+        return aux;
     }
 
     @Override
     public Double n_clientes_esperado() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return M-(Miu/Landa)*(1-Sistema_vacio());
     }
 
     @Override
     public Double n_clientes_esperado_cola() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return M-((Landa+Miu)/Landa)*(1-Sistema_vacio());
     }
 
     @Override
     public Double n_clientes_esperado_cola_novacia() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return n_clientes_esperado_cola()/Sistema_ocupado();
     }
 
     @Override
@@ -75,16 +77,25 @@ public class PFCS implements int_simulacion{
 
     @Override
     public Double Tiempo_espera_cola() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return n_clientes_esperado_cola()/((M-n_clientes_esperado())*Landa);
     }
 
     @Override
     public Double Tiempo_espera_cola_no_vacia() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return Tiempo_espera_cola()/Sistema_ocupado();
     }
 
     @Override
     public String Leer() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        String aux=""+metodo.fac((int)Math.round(M));/**
+        aux=aux+("Tiempo del sistema ocupado: "+Sistema_ocupado());
+        aux=aux+("<br> Tiempo del sistema vacio: "+Sistema_vacio());
+        aux=aux+("<br> n clientes esperando: "+n_clientes_esperado());
+        aux=aux+("<br> n clientes esperando en cola: "+n_clientes_esperado_cola());
+        aux=aux+("<br> n clientes esperando en cols no vacia: "+n_clientes_esperado_cola_novacia());
+        aux=aux+("<br> Tiempo de espera en cola: "+Tiempo_espera_cola());
+        aux=aux+("<br> Tiempo de espera en cola no vacia: "+Tiempo_espera_cola_no_vacia());
+        aux = (metodo.fac((int)Math.round(M)));**/
+
+        return "<html>"+aux+"<html>";}
     }
-}

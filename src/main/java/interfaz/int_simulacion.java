@@ -10,7 +10,7 @@ package interfaz;
  */
 public interface int_simulacion {
     public Double Sistema_ocupado ();
-    public Double Sistema_vacio (int op,double aux);
+    public Double Sistema_vacio ();
     public Double n_clientes (int n);
     public Double maximo_n_clientes(int n);
     public Double n_clientes_esperado ();

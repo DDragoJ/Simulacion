@@ -28,47 +28,55 @@ public class PICS implements int_simulacion{
         if (Landa/Miu<1) estado="Estable";
         return estado;
     }
+    @Override
     public Double Sistema_ocupado (){
         return Landa/Miu;
     }
-    public Double Sistema_vacio (int op,double aux){
-        if (op==1){
-        return 1-Landa/Miu;}else{
-        return 1-aux;
-        }
+    @Override
+    public Double Sistema_vacio (){
+        return 1-Landa/Miu;
     }
+    @Override
     public Double n_clientes (int n){
-        return Sistema_vacio(1,0.0)*Math.pow(Sistema_ocupado(), n);
+        return Sistema_vacio()*Math.pow(Sistema_ocupado(), n);
     }
+    @Override
     public Double maximo_n_clientes(int n){
         Double acum=0.0;
         if (n>0){acum=acum+maximo_n_clientes(n-1);
-        }else{return acum=Sistema_vacio(1, 0);};
+        }else{return acum=Sistema_vacio();};
         return acum;
     }
+    @Override
     public Double n_clientes_esperado (){
         return (Landa)/(Miu-Landa);
     }
+    @Override
     public Double n_clientes_esperado_cola (){
         return (Math.pow(Landa, 2))/(Miu*(Miu-Landa));
     }
+    @Override
     public Double n_clientes_esperado_cola_novacia (){
         return (Landa)/(Miu-Landa);
     }
+    @Override
     public Double Tiempo_espera_sistema(){
         return 1/(Miu-Landa);
     }
+    @Override
         public Double Tiempo_espera_cola(){
         return Landa/(Miu*(Miu-Landa));
     }
+        @Override
         public Double Tiempo_espera_cola_no_vacia(){
         return 1/(Miu-Landa);
     }
         
+    @Override
     public String Leer() {
         String aux="";
         aux=aux+("Tiempo del sistema ocupado: "+Sistema_ocupado());
-        aux=aux+("<br> Tiempo del sistema vacio: "+Sistema_vacio(1,0));
+        aux=aux+("<br> Tiempo del sistema vacio: "+Sistema_vacio());
         aux=aux+("<br> n clientes esperando: "+n_clientes_esperado());
         aux=aux+("<br> n clientes esperando en cola: "+n_clientes_esperado_cola());
         aux=aux+("<br> n clientes esperando en cols no vacia: "+n_clientes_esperado_cola_novacia());
