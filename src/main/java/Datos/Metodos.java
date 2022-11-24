@@ -1,6 +1,8 @@
 package Datos;
 
-import javax.xml.transform.Source;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -12,12 +14,24 @@ import javax.xml.transform.Source;
  * @author cosmo
  */
 public class Metodos {
-    public int fac(int n){
-        System.out.println(""+n);/**
-        if (n==0)
-            return 1;
+    DecimalFormat df=new DecimalFormat(".##");
+    
+
+    public Metodos() {}
+    
+    public Double fac(Double n){
+        if (n==0.0)
+            return 1.0;
         else
-            return n * fac(n-1);**/
-        return n;
+            return n * fac(n-1);
+    }
+    public Double redondear(Double n){
+        String aux=df.format(n).replace(",", ".");
+        return Double.parseDouble(aux);
+    }
+        public Double truncar(Double n){
+        BigDecimal bd = new BigDecimal(String.valueOf(n));
+        BigDecimal rounded = bd.setScale(2,RoundingMode.FLOOR);
+        return Double.parseDouble(rounded.toString());
     }
 }

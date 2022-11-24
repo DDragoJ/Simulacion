@@ -5,6 +5,7 @@
 package Font;
 
 import Datos.PFCS;
+import Datos.PICM;
 import Datos.PICS;
 
 /**
@@ -113,7 +114,7 @@ public class Font1 extends javax.swing.JFrame {
 
     private void btn_calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calcularActionPerformed
         // TODO add your handling code here:
-        PFCS valor=new PFCS(Double.valueOf(txt_M.getText()),Double.valueOf(txt_Landa.getText()),Double.valueOf(txt_Miu.getText()));
+        PICM valor=new PICM(Double.valueOf(txt_M.getText()),Double.valueOf(txt_Landa.getText()),Double.valueOf(txt_Miu.getText()));
         lbl_respuesta.setText(valor.Leer());
     }//GEN-LAST:event_btn_calcularActionPerformed
 
