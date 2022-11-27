@@ -4,16 +4,20 @@
  */
 package Font;
 
-import Datos.PFCS;
-import Datos.PICM;
-import Datos.PICS;
+import Datos.PFCM;
+import Datos.Metodos;
+
 
 /**
  *
  * @author cosmo
  */
 public class Font1 extends javax.swing.JFrame {
-
+    Double M;
+    Double Landa;
+    Double Miu;
+    Double K;
+    Metodos metodo=new Metodos();
     /**
      * Creates new form Font1
      */
@@ -36,6 +40,7 @@ public class Font1 extends javax.swing.JFrame {
         txt_Landa = new javax.swing.JTextField();
         lbl_respuesta = new javax.swing.JLabel();
         txt_M = new javax.swing.JTextField();
+        txt_K = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,6 +64,8 @@ public class Font1 extends javax.swing.JFrame {
 
         txt_M.setText("M");
 
+        txt_K.setText("K");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -75,7 +82,8 @@ public class Font1 extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txt_Miu, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txt_M, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txt_M, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txt_K, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                         .addComponent(lbl_respuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -92,8 +100,10 @@ public class Font1 extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(106, 106, 106)
                         .addComponent(txt_Miu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(32, 32, 32)
-                        .addComponent(txt_M, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_M, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txt_K, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(51, 51, 51)
                         .addComponent(lbl_respuesta, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -114,7 +124,8 @@ public class Font1 extends javax.swing.JFrame {
 
     private void btn_calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calcularActionPerformed
         // TODO add your handling code here:
-        PICM valor=new PICM(Double.valueOf(txt_M.getText()),Double.valueOf(txt_Landa.getText()),Double.valueOf(txt_Miu.getText()));
+        leer();
+        PFCM valor=new PFCM(K,M,Landa,Miu);
         lbl_respuesta.setText(valor.Leer());
     }//GEN-LAST:event_btn_calcularActionPerformed
 
@@ -152,11 +163,18 @@ public class Font1 extends javax.swing.JFrame {
             }
         });
     }
+    public void leer (){
+        this.K=Double.valueOf(txt_K.getText());
+        this.M=Double.valueOf(txt_M.getText());
+        this.Landa=Double.valueOf(txt_Landa.getText());
+        this.Miu=Double.valueOf(txt_Miu.getText());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Limpiar;
     private javax.swing.JButton btn_calcular;
     private javax.swing.JLabel lbl_respuesta;
+    private javax.swing.JTextField txt_K;
     private javax.swing.JTextField txt_Landa;
     private javax.swing.JTextField txt_M;
     private javax.swing.JTextField txt_Miu;
