@@ -19,5 +19,5 @@ public interface int_simulacion {
     public Double Tiempo_espera_sistema();
     public Double Tiempo_espera_cola();
     public Double Tiempo_espera_cola_no_vacia();    
-    public String Leer();
+
 }

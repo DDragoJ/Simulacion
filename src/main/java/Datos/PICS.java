@@ -71,18 +71,4 @@ public class PICS implements int_simulacion{
         public Double Tiempo_espera_cola_no_vacia(){
         return 1/(Miu-Landa);
     }
-        
-    @Override
-    public String Leer() {
-        String aux="";
-        aux=aux+("Tiempo del sistema ocupado: "+Sistema_ocupado());
-        aux=aux+("<br> Tiempo del sistema vacio: "+Sistema_vacio());
-        aux=aux+("<br> n clientes esperando: "+n_clientes_esperado());
-        aux=aux+("<br> n clientes esperando en cola: "+n_clientes_esperado_cola());
-        aux=aux+("<br> n clientes esperando en cols no vacia: "+n_clientes_esperado_cola_novacia());
-        aux=aux+("<br> Tiempo de espera en cola: "+Tiempo_espera_cola());
-        aux=aux+("<br> Tiempo de espera en cola no vacia: "+Tiempo_espera_cola_no_vacia());
-        aux=aux+("<br> Tiempo de esera del sistema: "+Tiempo_espera_sistema());
-        return "<html>"+aux+"<html>";
-    }
 }

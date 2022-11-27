@@ -104,15 +104,4 @@ public class PICM implements int_simulacion{
         return Tiempo_espera_cola()/Sistema_ocupado();
     }
 
-    @Override
-    public String Leer() {String aux="";
-        aux=aux+("Tiempo del sistema ocupado: "+metodo.redondear(Sistema_ocupado()));
-        aux=aux+("<br> Tiempo del sistema vacio: "+metodo.redondear(Sistema_vacio()));
-        aux=aux+("<br> n clientes esperando: "+metodo.redondear(n_clientes_esperado()));
-        aux=aux+("<br> n clientes esperando en cola: "+metodo.redondear(n_clientes_esperado_cola()));
-        aux=aux+("<br> n clientes esperando en cols no vacia: "+metodo.redondear(n_clientes_esperado_cola_novacia()));
-        aux=aux+("<br> Tiempo de espera en cola: "+metodo.redondear(Tiempo_espera_cola()));
-        aux=aux+("<br> Tiempo de espera en cola no vacia: "+metodo.redondear(Tiempo_espera_cola_no_vacia()));
-        aux=aux+("<br> Tiempo de espera en el sistema: "+metodo.redondear(Tiempo_espera_sistema()));
-        return "<html>"+aux+"<html>";}
 }

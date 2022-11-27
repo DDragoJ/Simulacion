@@ -52,7 +52,7 @@ public class PFCM implements int_simulacion{
         Double aux;
         Double M_fac=metodo.fac(M);
         if(n<=K){
-            aux=M_fac/((M-n)*metodo.fac(Double.valueOf(n)));
+            aux=M_fac/(metodo.fac(M-n)*metodo.fac(Double.valueOf(n)));
         }else{
             aux=(M_fac)/(M-n)*metodo.fac(K)*Math.pow(K, n-K);
         };
@@ -63,28 +63,20 @@ public class PFCM implements int_simulacion{
     @Override
     public Double maximo_n_clientes(int n) {
         Double aux=0.0;
-        for(int i=1;i<=n;i++){
+        for(int i=0;i<=n;i++){
             aux+=n_clientes(i);
         };
-        return aux+Sistema_vacio();
+        return aux;
     }
 
     @Override
     public Double n_clientes_esperado() {
-        Double aux=0.0;
-        int K_1=(int) Math.round(K);
+        Double aux1=0.0,aux2;
         for(int i=0;i<=K-1;i++){
-            aux=(aux)+(n_clientes(i)*i);
+            aux1+=i*(n_clientes(i));
         };
-        for(int i=(K_1);i<=M;i++){
-            aux=(aux)+(n_clientes(i)*(i-K));
-        };
-        aux=aux*K;
-        for(int i=0;i<=K-1;i++){
-            aux=(aux)+(1-n_clientes(i));
-        };
-        
-        return aux;
+        aux2=K*(1-maximo_n_clientes((int) (K-1)));
+        return n_clientes_esperado_cola()+aux1+aux2;
     }
 
     @Override
@@ -117,17 +109,5 @@ public class PFCM implements int_simulacion{
         return (Tiempo_espera_cola()/Sistema_ocupado());
     }
 
-    @Override
-    public String Leer() {
-        String aux="";
-        aux=aux+("Tiempo del sistema ocupado: "+metodo.redondear(Sistema_ocupado()));
-        aux=aux+("<br> Tiempo del sistema vacio: "+metodo.redondear(Sistema_vacio()));
-        aux=aux+("<br> n clientes esperando: "+metodo.redondear(n_clientes_esperado()));
-        aux=aux+("<br> n clientes esperando en cola: "+metodo.redondear(n_clientes_esperado_cola()));
-        aux=aux+("<br> n clientes esperando en cols no vacia: "+metodo.redondear(n_clientes_esperado_cola_novacia()));
-        aux=aux+("<br> Tiempo de espera en cola: "+metodo.redondear(Tiempo_espera_cola()));
-        aux=aux+("<br> Tiempo de espera en cola no vacia: "+metodo.redondear(Tiempo_espera_cola_no_vacia()));
-        aux=aux+("<br> Tiempo de espera en el sistema: "+metodo.redondear(Tiempo_espera_sistema()));
-        return "<html>"+aux+"<html>";}
     
 }
