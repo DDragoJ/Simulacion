@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="btn_grup_opciones">
+    </Component>
+  </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
   </Properties>
@@ -23,54 +27,148 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txt_Landa" alignment="0" min="-2" pref="113" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Component id="txt_Miu" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Component id="txt_M" min="-2" pref="105" max="-2" attributes="0"/>
-                              <Component id="txt_K" min="-2" pref="105" max="-2" attributes="0"/>
+                          <Component id="btn_Limpiar" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_Costo" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" pref="291" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="lbl_landa" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="lbl_M" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lbl_K" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="txt_M" min="-2" pref="105" max="-2" attributes="0"/>
+                                  <Component id="txt_K" min="-2" pref="105" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace min="-2" pref="483" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Component id="rd_btn_PICS" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="rd_btn_PICM" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
+                      <Component id="rd_btn_PFCM" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="btn_Calcular" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lbl_Dias" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="lbl_Miu" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="btn_Calcular_sal" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txt_Costo" min="-2" pref="105" max="-2" attributes="0"/>
+                                      <Component id="txt_Horas" min="-2" pref="105" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="rd_btn_PFCS" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="txt_Landa" min="-2" pref="105" max="-2" attributes="0"/>
+                                      <Component id="txt_Miu" min="-2" pref="105" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
+                              <Component id="jScrollPane1" min="-2" pref="425" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="btn_Limpiar" min="-2" max="-2" attributes="0"/>
-                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="btn_Calcular" min="-2" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" min="-2" pref="446" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="34" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="txt_Landa" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="txt_Miu" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="txt_M" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="txt_K" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Component id="jScrollPane1" min="-2" pref="150" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="63" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btn_Limpiar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btn_Calcular" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rd_btn_PICS" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rd_btn_PICM" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rd_btn_PFCS" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="rd_btn_PFCM" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txt_Landa" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_landa" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txt_Miu" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_Miu" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txt_M" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_M" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txt_K" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_K" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jScrollPane1" min="-2" pref="187" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Component id="btn_Calcular" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jScrollPane2" min="-2" pref="136" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txt_Costo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_Costo" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="txt_Horas" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="lbl_Dias" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="btn_Calcular_sal" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <Component id="btn_Limpiar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -81,26 +179,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Limpiar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_LimpiarActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_Miu">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Miu"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_Landa">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Landa"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_M">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="M"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_K">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="K"/>
-      </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
@@ -132,10 +221,121 @@
     </Container>
     <Component class="javax.swing.JButton" name="btn_Calcular">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Calcukar"/>
+        <Property name="text" type="java.lang.String" value="Calcular"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_CalcularActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txt_Costo">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txt_Horas">
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane2">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="tbl_Costo">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="2" rowCount="5">
+                <Column editable="false" title="Costo Diario" type="java.lang.String">
+                  <Data value="Tiempo de espera en cola"/>
+                  <Data value="Tiempo en el Sistema"/>
+                  <Data value="Tiempo de Servicio"/>
+                  <Data value="Tiempo del servidor"/>
+                  <Data value="Total diario"/>
+                </Column>
+                <Column editable="false" title="Valor" type="java.lang.Double"/>
+              </Table>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JRadioButton" name="rd_btn_PICS">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="btn_grup_opciones"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="PICS"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rd_btn_PICSActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rd_btn_PICM">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="btn_grup_opciones"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="PICM"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rd_btn_PICMActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rd_btn_PFCS">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="btn_grup_opciones"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="PFCS"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rd_btn_PFCSActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="rd_btn_PFCM">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="btn_grup_opciones"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="PFCM"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rd_btn_PFCMActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbl_landa">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Landa"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbl_Miu">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Miu"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbl_M">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="M"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbl_K">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="K"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbl_Costo">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Costo por dia"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lbl_Dias">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Horas/D&#xed;a de trabajo"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_Calcular_sal">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Calcular Salario"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_Calcular_salActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

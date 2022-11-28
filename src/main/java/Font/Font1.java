@@ -4,7 +4,11 @@
  */
 package Font;
 
+import Datos.PICS;
+import Datos.PICM;
+import Datos.PFCS;
 import Datos.PFCM;
+import Datos.Probabilidad;
 import Datos.Metodos;
 
 
@@ -13,6 +17,9 @@ import Datos.Metodos;
  * @author cosmo
  */
 public class Font1 extends javax.swing.JFrame {
+    /*vARIABLES*/
+    Metodos metodo=new Metodos();
+    Probabilidad valor;
 
     /**
      * Creates new form Font1
@@ -30,6 +37,7 @@ public class Font1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btn_grup_opciones = new javax.swing.ButtonGroup();
         btn_Limpiar = new javax.swing.JButton();
         txt_Miu = new javax.swing.JTextField();
         txt_Landa = new javax.swing.JTextField();
@@ -38,18 +46,30 @@ public class Font1 extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tbl_Sistema = new javax.swing.JTable();
         btn_Calcular = new javax.swing.JButton();
+        txt_Costo = new javax.swing.JTextField();
+        txt_Horas = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbl_Costo = new javax.swing.JTable();
+        rd_btn_PICS = new javax.swing.JRadioButton();
+        rd_btn_PICM = new javax.swing.JRadioButton();
+        rd_btn_PFCS = new javax.swing.JRadioButton();
+        rd_btn_PFCM = new javax.swing.JRadioButton();
+        lbl_landa = new javax.swing.JLabel();
+        lbl_Miu = new javax.swing.JLabel();
+        lbl_M = new javax.swing.JLabel();
+        lbl_K = new javax.swing.JLabel();
+        lbl_Costo = new javax.swing.JLabel();
+        lbl_Dias = new javax.swing.JLabel();
+        btn_Calcular_sal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btn_Limpiar.setText("Limpiar");
-
-        txt_Miu.setText("Miu");
-
-        txt_Landa.setText("Landa");
-
-        txt_M.setText("M");
-
-        txt_K.setText("K");
+        btn_Limpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_LimpiarActionPerformed(evt);
+            }
+        });
 
         tbl_Sistema.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -83,10 +103,90 @@ public class Font1 extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tbl_Sistema);
 
-        btn_Calcular.setText("Calcukar");
+        btn_Calcular.setText("Calcular");
         btn_Calcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_CalcularActionPerformed(evt);
+            }
+        });
+
+        tbl_Costo.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"Tiempo de espera en cola", null},
+                {"Tiempo en el Sistema", null},
+                {"Tiempo de Servicio", null},
+                {"Tiempo del servidor", null},
+                {"Total diario", null}
+            },
+            new String [] {
+                "Costo Diario", "Valor"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(tbl_Costo);
+
+        btn_grup_opciones.add(rd_btn_PICS);
+        rd_btn_PICS.setText("PICS");
+        rd_btn_PICS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rd_btn_PICSActionPerformed(evt);
+            }
+        });
+
+        btn_grup_opciones.add(rd_btn_PICM);
+        rd_btn_PICM.setText("PICM");
+        rd_btn_PICM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rd_btn_PICMActionPerformed(evt);
+            }
+        });
+
+        btn_grup_opciones.add(rd_btn_PFCS);
+        rd_btn_PFCS.setText("PFCS");
+        rd_btn_PFCS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rd_btn_PFCSActionPerformed(evt);
+            }
+        });
+
+        btn_grup_opciones.add(rd_btn_PFCM);
+        rd_btn_PFCM.setText("PFCM");
+        rd_btn_PFCM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rd_btn_PFCMActionPerformed(evt);
+            }
+        });
+
+        lbl_landa.setText("Landa");
+
+        lbl_Miu.setText("Miu");
+
+        lbl_M.setText("M");
+
+        lbl_K.setText("K");
+
+        lbl_Costo.setText("Costo por dia");
+
+        lbl_Dias.setText("Horas/Día de trabajo");
+
+        btn_Calcular_sal.setText("Calcular Salario");
+        btn_Calcular_sal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_Calcular_salActionPerformed(evt);
             }
         });
 
@@ -95,42 +195,115 @@ public class Font1 extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txt_Landa, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(txt_Miu, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txt_M, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txt_K, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btn_Limpiar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lbl_Costo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(85, 85, 85))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(lbl_landa)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lbl_M)
+                                    .addComponent(lbl_K))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txt_M, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txt_K, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(72, 72, 72)))
+                        .addGap(483, 483, 483))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btn_Limpiar)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btn_Calcular)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(34, Short.MAX_VALUE))
+                        .addComponent(rd_btn_PICS)
+                        .addGap(42, 42, 42)
+                        .addComponent(rd_btn_PICM)
+                        .addGap(127, 127, 127)
+                        .addComponent(rd_btn_PFCM)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btn_Calcular)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(lbl_Dias)
+                                .addComponent(lbl_Miu)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(28, 28, 28)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(btn_Calcular_sal)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txt_Costo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txt_Horas, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(rd_btn_PFCS)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txt_Landa, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txt_Miu, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(83, 83, 83)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(41, 41, 41))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(69, 69, 69)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(txt_Landa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_Miu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_M, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(txt_K, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_Limpiar)
-                    .addComponent(btn_Calcular))
+                    .addComponent(rd_btn_PICS)
+                    .addComponent(rd_btn_PICM)
+                    .addComponent(rd_btn_PFCS)
+                    .addComponent(rd_btn_PFCM))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_Landa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_landa))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_Miu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_Miu))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_M, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_M))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_K, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_K))
+                        .addGap(86, 86, 86))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(14, 14, 14)
+                        .addComponent(btn_Calcular)
+                        .addGap(30, 30, 30)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_Costo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_Costo))
+                        .addGap(43, 43, 43)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txt_Horas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbl_Dias))
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_Calcular_sal)
+                        .addGap(20, 20, 20)))
+                .addComponent(btn_Limpiar)
                 .addContainerGap())
         );
 
@@ -139,18 +312,60 @@ public class Font1 extends javax.swing.JFrame {
 
     private void btn_CalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_CalcularActionPerformed
         // TODO add your handling code here:
-        Metodos metodo=new Metodos();
-        PFCM valor=new PFCM(2.0,4.0,0.1,0.5);
-        tbl_Sistema.setValueAt(metodo.redondear(valor.Sistema_vacio()), 0, 1);
-        tbl_Sistema.setValueAt(metodo.redondear(valor.Sistema_ocupado()), 1, 1);
-        tbl_Sistema.setValueAt(metodo.redondear(valor.n_clientes_esperado()), 2, 1);
-        tbl_Sistema.setValueAt(metodo.redondear(valor.n_clientes_esperado_cola()), 3, 1);
-        tbl_Sistema.setValueAt(metodo.redondear(valor.n_clientes_esperado_cola_novacia()), 4, 1);
-        tbl_Sistema.setValueAt(metodo.redondear(valor.Tiempo_espera_cola()), 5, 1);
-        tbl_Sistema.setValueAt(metodo.redondear(valor.Tiempo_espera_cola_no_vacia()), 6, 1);
-        tbl_Sistema.setValueAt(metodo.redondear(valor.Tiempo_espera_sistema()), 7, 1);
-
+        Double Landa=Double.valueOf(txt_Landa.getText());
+        Double Miu=Double.valueOf(txt_Miu.getText());
+        Double M=Double.valueOf(txt_M.getText());
+        Double K=Double.valueOf(txt_K.getText());
+        if(rd_btn_PICS.isSelected()){valor=new PICS(M,Landa,Miu);}
+        if(rd_btn_PICM.isSelected()){valor=new PICM(K,Landa,Miu);}
+        if(rd_btn_PFCS.isSelected()){valor=new PFCS(M,Landa,Miu);}
+        if(rd_btn_PFCM.isSelected()){valor=new PFCM(K,M,Landa,Miu);}
+        resultados_sistema();
     }//GEN-LAST:event_btn_CalcularActionPerformed
+
+    private void btn_Calcular_salActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_Calcular_salActionPerformed
+        // TODO add your handling code here:
+        Double costo=Double.valueOf(txt_Costo.getText());
+        Double trabajo=Double.valueOf(txt_Horas.getText());
+        Double Landa=Double.valueOf(txt_Landa.getText());
+        Double Miu=Double.valueOf(txt_Miu.getText());
+        //editar
+        Double aux1=Landa*trabajo*valor.Tiempo_espera_cola()*(costo);
+        Double aux2=Landa*trabajo*valor.Tiempo_espera_sistema();
+        Double aux3=Landa*trabajo*(1/Miu);
+        Double aux4=Double.valueOf(txt_K.getText())*costo;
+        Double aux5=aux1+aux2+aux3+aux4;
+    }//GEN-LAST:event_btn_Calcular_salActionPerformed
+
+    private void btn_LimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_LimpiarActionPerformed
+        // TODO add your handling code here:
+        txt_Costo.setText("");
+        txt_Horas.setText("");
+        txt_K.setText("");
+        txt_M.setText("");
+        txt_Landa.setText("");
+        txt_Miu.setText("");
+    }//GEN-LAST:event_btn_LimpiarActionPerformed
+
+    private void rd_btn_PICSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rd_btn_PICSActionPerformed
+        // TODO add your handling code here:
+        txt_K.setText("1");
+        txt_M.setText("0");
+    }//GEN-LAST:event_rd_btn_PICSActionPerformed
+
+    private void rd_btn_PICMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rd_btn_PICMActionPerformed
+        // TODO add your handling code here:
+        txt_M.setText("0");
+    }//GEN-LAST:event_rd_btn_PICMActionPerformed
+
+    private void rd_btn_PFCSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rd_btn_PFCSActionPerformed
+        // TODO add your handling code here:
+        txt_K.setText("1");
+    }//GEN-LAST:event_rd_btn_PFCSActionPerformed
+
+    private void rd_btn_PFCMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rd_btn_PFCMActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rd_btn_PFCMActionPerformed
 
     /**
      * @param args the command line arguments
@@ -189,14 +404,47 @@ public class Font1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btn_Calcular;
+    private javax.swing.JButton btn_Calcular_sal;
     private javax.swing.JButton btn_Limpiar;
+    private javax.swing.ButtonGroup btn_grup_opciones;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lbl_Costo;
+    private javax.swing.JLabel lbl_Dias;
+    private javax.swing.JLabel lbl_K;
+    private javax.swing.JLabel lbl_M;
+    private javax.swing.JLabel lbl_Miu;
+    private javax.swing.JLabel lbl_landa;
+    private javax.swing.JRadioButton rd_btn_PFCM;
+    private javax.swing.JRadioButton rd_btn_PFCS;
+    private javax.swing.JRadioButton rd_btn_PICM;
+    private javax.swing.JRadioButton rd_btn_PICS;
+    private javax.swing.JTable tbl_Costo;
     private javax.swing.JTable tbl_Sistema;
+    private javax.swing.JTextField txt_Costo;
+    private javax.swing.JTextField txt_Horas;
     private javax.swing.JTextField txt_K;
     private javax.swing.JTextField txt_Landa;
     private javax.swing.JTextField txt_M;
     private javax.swing.JTextField txt_Miu;
     // End of variables declaration//GEN-END:variables
 
+    public void resultados_sistema(){
+        tbl_Sistema.setValueAt(metodo.redondear(valor.Sistema_vacio()), 0, 1);
+        tbl_Sistema.setValueAt(metodo.redondear(valor.Sistema_ocupado()), 1, 1);
+        tbl_Sistema.setValueAt(metodo.redondear(valor.n_clientes_esperado()), 2, 1);
+        tbl_Sistema.setValueAt(metodo.redondear(valor.n_clientes_esperado_cola()), 3, 1);
+        tbl_Sistema.setValueAt(metodo.redondear(valor.n_clientes_esperado_cola_novacia()), 4, 1);
+        tbl_Sistema.setValueAt(metodo.redondear(valor.Tiempo_espera_cola()), 5, 1);
+        tbl_Sistema.setValueAt(metodo.redondear(valor.Tiempo_espera_cola_no_vacia()), 6, 1);
+        tbl_Sistema.setValueAt(metodo.redondear(valor.Tiempo_espera_sistema()), 7, 1);
+    }
+    public void resultados_salario(Double valor1,Double valor2,Double valor3,Double valor4,Double valor5){
+        tbl_Sistema.setValueAt(metodo.redondear(valor1), 0, 1);
+        tbl_Sistema.setValueAt(metodo.redondear(valor2), 1, 1);
+        tbl_Sistema.setValueAt(metodo.redondear(valor3), 2, 1);
+        tbl_Sistema.setValueAt(metodo.redondear(valor4), 3, 1);
+        tbl_Sistema.setValueAt(metodo.redondear(valor5), 4, 1);
+    }
     
 }

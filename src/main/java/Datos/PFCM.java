@@ -10,13 +10,9 @@ import interfaz.int_simulacion;
  * POBLACION FINITA CANAL MULTIPLE
  * @author cosmo
  */
-public class PFCM implements int_simulacion{
+public class PFCM extends Probabilidad{
         //M*K*LANDA*MIAW
-     Double M;
-     Double Landa;
-     Double K;
-     Double Miu;
-     Metodos metodo = new Metodos();
+     
     
     public PFCM(Double K,Double M, Double Landa, Double Miu) {
         this.M = M;
@@ -54,7 +50,7 @@ public class PFCM implements int_simulacion{
         if(n<=K){
             aux=M_fac/(metodo.fac(M-n)*metodo.fac(Double.valueOf(n)));
         }else{
-            aux=(M_fac)/(M-n)*metodo.fac(K)*Math.pow(K, n-K);
+            aux=(M_fac)/(metodo.fac(M-n)*metodo.fac(K)*Math.pow(K, n-K));
         };
         aux=aux*(Math.pow((Landa/Miu), n))*Sistema_vacio();
         return aux;
@@ -67,6 +63,7 @@ public class PFCM implements int_simulacion{
             aux+=n_clientes(i);
         };
         return aux;
+        
     }
 
     @Override
@@ -76,15 +73,14 @@ public class PFCM implements int_simulacion{
             aux1+=i*(n_clientes(i));
         };
         aux2=K*(1-maximo_n_clientes((int) (K-1)));
-        return n_clientes_esperado_cola()+aux1+aux2;
+        return (n_clientes_esperado_cola()+aux1+aux2);
     }
 
     @Override
     public Double n_clientes_esperado_cola() {
         Double aux=0.0;
-        int K_1 =(int)Math.round(K);
-        for(int i=(K_1);i<=M;i++){
-            aux=(aux)+(n_clientes(i)*(i-K));
+        for(int i=(int) Math.round(K);i<=M;i++){
+            aux+=(n_clientes(i))*(i-K);
         };
         return aux;
     }
@@ -101,7 +97,7 @@ public class PFCM implements int_simulacion{
 
     @Override
     public Double Tiempo_espera_cola() {
-        return n_clientes_esperado()/((M-n_clientes_esperado())*Landa);
+        return (n_clientes_esperado_cola())/((M-n_clientes_esperado())*Landa);
     }
 
     @Override

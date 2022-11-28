@@ -10,7 +10,7 @@ import interfaz.int_simulacion;
  *POBLACION FINITA CANAL SIMPLE
  * @author cosmo
  */
-public class PFCS implements int_simulacion{
+public class PFCS extends Probabilidad{
     public PFCS (Double M, Double Landa, Double Miu){
     this.M=M;
     this.Landa = Landa;
@@ -18,11 +18,6 @@ public class PFCS implements int_simulacion{
     this.Miu = Miu;
     }
     //M*K*LANDA*MIAW
-    Double M;
-    Double Landa;
-    Double K;
-    Double Miu;
-    Metodos metodo=new Metodos();
     
     @Override
     public Double Sistema_vacio(){

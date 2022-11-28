@@ -27,11 +27,11 @@ public class Metodos {
     }
     public Double redondear(Double n){
         String aux=df.format(n).replace(",", ".");
-        return Double.valueOf(aux);
+        return Double.parseDouble(aux);
     }
         public Double truncar(Double n){
         BigDecimal bd = new BigDecimal(String.valueOf(n));
         BigDecimal rounded = bd.setScale(2,RoundingMode.FLOOR);
-        return Double.valueOf(rounded.toString());
+        return Double.parseDouble(rounded.toString());
     }
 }

@@ -10,19 +10,13 @@ import interfaz.int_simulacion;
  *POBLACION INFINITA CANAL MULTIPLE
  * @author cosmo
  */
-public class PICM implements int_simulacion{
+public class PICM extends Probabilidad{
     
     public PICM (Double K, Double Landa, Double Miu){
     this.K=K;
     this.Landa = Landa;
     this.Miu = Miu;
     }
-    //M*K*LANDA*MIAW
-    Double M;
-    Double Landa;
-    Double K;
-    Double Miu;
-    Metodos metodo=new Metodos();
     
     @Override
     public Double Sistema_ocupado() {

@@ -10,7 +10,7 @@ import interfaz.int_simulacion;
  * POBLACION INFINITA CANAL SIMPLE
  * @author cosmo
  */
-public class PICS implements int_simulacion{
+public class PICS extends Probabilidad{
 
     public PICS(Double M, Double Landa, Double Miu) {
         this.M = M;
@@ -19,15 +19,12 @@ public class PICS implements int_simulacion{
         this.Miu = Miu;
     }
     //M*K*LANDA*MIAW
-    Double M;
-    Double Landa;
-    Double K;
-    Double Miu;
+/*
     public String Estabilidad (){
         String estado="Inestable";
         if (Landa/Miu<1) estado="Estable";
         return estado;
-    }
+    }*/
     @Override
     public Double Sistema_ocupado (){
         return Landa/Miu;
