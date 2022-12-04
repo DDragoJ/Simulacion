@@ -436,7 +436,7 @@ public class Font1 extends javax.swing.JFrame {
         String aux;
         Integer n = Integer.parseInt(txt_n.getText());
         aux=n+" clientes: "+metodo.redondear(valor.n_clientes(n)).toString();
-        aux=aux+"\n"+"Maximo "+n+": "+metodo.redondear(valor.maximo_n_clientes(n)).toString();
+        aux=aux+"\n Maximo "+n+": "+(valor.maximo_n_clientes(n)).toString();
         
         lbl_Respuesta_nclientes.setText("<html>"+aux+"<html>");
     }//GEN-LAST:event_btn_MaxActionPerformed

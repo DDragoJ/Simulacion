@@ -5,6 +5,7 @@
 package Datos;
 
 import interfaz.int_simulacion;
+import Datos.Metodos;
 
 /**
  * POBLACION INFINITA CANAL SIMPLE
@@ -40,8 +41,9 @@ public class PICS extends Probabilidad{
     @Override
     public Double maximo_n_clientes(int n){
         Double acum=0.0;
-        if (n>0){acum=acum+maximo_n_clientes(n-1);
-        }else{return acum=Sistema_vacio();};
+        for(int i=0; i<=n;i++){
+            acum=acum+n_clientes(i);
+        }
         return acum;
     }
     @Override

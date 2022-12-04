@@ -43,20 +43,25 @@ public class PICM extends Probabilidad{
 
     @Override
     public Double n_clientes(int n) {
-        Double aux=0.0;
         Double P0=Sistema_vacio();
+        Double L_M=Landa/Miu;
+        Double factor1=0.0;
+        Double factor2=0.0;
             if(n<K){
-                return (P0/metodo.fac(Double.valueOf(n)))*Math.pow((Landa/Miu),n);
+                return (P0/metodo.fac(Double.valueOf(n)))*Math.pow(L_M,n);
             }else{
-                return (1/(metodo.fac(K)*Math.pow((Landa/Miu), n-K)));
+                factor1=1/((metodo.fac(K))*(Math.pow(K, n-K)));
+                factor2=Math.pow(L_M, n);
+                System.out.println(n+" "+factor1+"  "+factor2);
+                return factor1*factor2*P0;
             }
         };
 
     @Override
     public Double maximo_n_clientes(int n) {
         Double aux=0.0;
-        for(int i=0;i<K;i++){
-            aux=aux+n_clientes(i);
+        for(int i=0;i<=n;i++){
+            aux=aux+(n_clientes(i));
         }
         return aux;
     }
@@ -71,7 +76,6 @@ public class PICM extends Probabilidad{
         Double aux1=(Landa*Miu)*Math.pow((Landa/Miu), K);
         Double aux2=(Miu*K)-(Landa);
         aux2=(metodo.fac(K-1))*(Math.pow((aux2), 2));
-        System.out.println(aux1+"   "+aux2);
         return (aux1/aux2)*Sistema_vacio();
     }
 
