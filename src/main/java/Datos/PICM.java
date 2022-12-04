@@ -52,7 +52,6 @@ public class PICM extends Probabilidad{
             }else{
                 factor1=1/((metodo.fac(K))*(Math.pow(K, n-K)));
                 factor2=Math.pow(L_M, n);
-                System.out.println(n+" "+factor1+"  "+factor2);
                 return factor1*factor2*P0;
             }
         };
